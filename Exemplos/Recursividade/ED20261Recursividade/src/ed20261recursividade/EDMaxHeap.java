@@ -12,8 +12,10 @@ public class EDMaxHeap {
     public static void main(String[] args)
     {
         int v[] = {23,34,32,47, 45, 17,1};
-        MaxHeap heap = new MaxHeap(v);
-        heap.heap();
-        heap.show();
+        HeapSort sort = new HeapSort(v);
+        
+        sort.sort();
+        
+        sort.show();
     }
 }
