@@ -1,46 +1,49 @@
+public class BubbleSort { 
+    private int[] array = null; 
+    private int size = 0; 
 
-public class BubbleSort {
-    private int[] array = null;
-    private int size = 0;
-    public BubbleSort(int[] array)
-    {
-        this.array = array;
-        this.size = array.length;
-    }
+    public BubbleSort(int[] array) { 
+        this.array = array; 
+        this.size = array.length; 
+    } 
 
-    private void swap(int a, int b)
-    {
-        int aux = this.array[a];
-        this.array[a] = this.array[b];
-        this.array[b] = aux;
-    }
+    private void swap(int a, int b) { 
+        int aux = this.array[a]; 
+        this.array[a] = this.array[b]; 
+        this.array[b] = aux; 
+    } 
 
-    public void sort()
-    {
-        boolean changed = true;
-        while (changed)
-        {
-            changed = false;
-            for (int i=0; i < this.size - 1; i++)
-            {
-                if (this.array[i] > this.array[i+1])
-                {
-                    this.swap(i,i+1);
-                    changed = true;
-                }
-            }
-        }
-    }
+    public void sort() { 
+        boolean changed = true; 
+        // Otimização: reduz o escopo a cada passada, pois o maior elemento "flutua" para o fim
+        int currentSize = this.size; 
+        
+        while (changed) { 
+            changed = false; 
+            for (int i = 0; i < currentSize - 1; i++) { 
+                if (this.array[i] > this.array[i + 1]) { 
+                    this.swap(i, i + 1); 
+                    changed = true; 
+                } 
+            } 
+            currentSize--; 
+        } 
+    } 
 
-    public String toString()
-    {
-        StringBuffer sb = new StringBuffer();
-        for (int i=0; i < this.size; i++)
-        {
-            sb.append("\n" + i + ".\t" + this.array[i]);
-        }
+    @Override
+    public String toString() { 
+        StringBuilder sb = new StringBuilder(); 
+        for (int i = 0; i < this.size; i++) { 
+            sb.append("\n").append(i).append(".\t").append(this.array[i]); 
+        } 
+        return sb.toString(); 
+    } 
 
-        return sb.toString();
-    }
+    public void show() { 
+        for (int i = 0; i < this.size; i++) { 
+            System.out.print(this.array[i] + " "); 
+        } 
+        System.out.println();
+    } 
 }
 

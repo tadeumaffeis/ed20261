@@ -1,10 +1,18 @@
-public class Main {
-    public static void main(String[] args)
-    {
-        int[] array = {10,9,101,7,44,28};
-        BubbleSort bubble = new BubbleSort(array);
-        bubble.sort();
+import java.util.Scanner;
 
-        System.out.println(bubble.toString());
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] v;
+        int size = Integer.parseInt(args[0]);
+        v = new int[size];
+
+        for (int i=0; i < size; i++)
+        {
+            v[i] = in.nextInt();
+        }
+        BubbleSort bubble = new BubbleSort(v);
+        bubble.sort();
+        bubble.show();
     }
 }
