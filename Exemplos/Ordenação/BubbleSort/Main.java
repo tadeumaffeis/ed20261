@@ -12,7 +12,7 @@ public class Main {
             v[i] = in.nextInt();
         }
         BubbleSort bubble = new BubbleSort(v);
-        bubble.sort();
+        bubble.sortO2();
         bubble.show();
     }
 }
